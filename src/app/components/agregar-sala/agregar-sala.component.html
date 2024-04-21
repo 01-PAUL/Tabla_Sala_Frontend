@@ -1,4 +1,61 @@
 <app-menu></app-menu>
-<div style="padding: 2%">
-        <p>agregar-sala works!</p>
+<div class="container">
+        <div class="row">
+                <mat-toolbar color="primary" >    
+                <span>Registra Sala</span>    
+                </mat-toolbar>  
+        </div>
+        <div  class="row"  style="margin-top: 3%">
+                    <mat-form-field class="col-md-4">
+                        <mat-label>Número</mat-label>
+                        <input  matInput [(ngModel)] ="objSala.numero">
+                    </mat-form-field>
+                    <mat-form-field class="col-md-4">
+                        <mat-label>Piso</mat-label>
+                        <input  matInput [(ngModel)] ="objSala.piso">
+                    </mat-form-field>
+                    <mat-form-field class="col-md-4">
+                        <mat-label>Número de Alumnos</mat-label>
+                        <input  matInput [(ngModel)] ="objSala.numAlumnos">
+                    </mat-form-field>
+        </div>
+        <div class="row"  style="margin-top: 3%">
+                    <mat-form-field class="col-md-4">
+                        <mat-label>Recursos</mat-label>
+                        <input  matInput [(ngModel)] ="objSala.recursos">
+                    </mat-form-field>
+                    <mat-form-field class="col-md-4">
+                        <mat-label>Tipo de Sala</mat-label>
+                        <mat-select [(ngModel)] ="objSala.tipoSala!.idDataCatalogo">
+                            <mat-option value="-1"> [Seleccione] </mat-option>
+                            <mat-option *ngFor="let x of lstTipo" [value]="x.idDataCatalogo">
+                                        {{x.descripcion}}
+                            </mat-option> 
+                        </mat-select> 
+                    </mat-form-field> 
+                    <mat-form-field class="col-md-4">
+                        <mat-label>Sede</mat-label>
+                        <mat-select  [(ngModel)] ="objSala.sede!.idDataCatalogo">
+                            <mat-option value="-1"> [Seleccione] </mat-option>
+                            <mat-option *ngFor="let y of lstSede" [value]="y.idDataCatalogo">
+                                    {{y.descripcion}}
+                            </mat-option> 
+                        </mat-select> 
+                    </mat-form-field>
+        </div>
+        <div class="row"  style="margin-top: 3%">
+                <mat-form-field class="col-md-4">
+                        <mat-label>Estado de Reserva</mat-label>
+                        <mat-select  [(ngModel)] ="objSala.estadoReserva!.idDataCatalogo">
+                            <mat-option value="-1"> [Seleccione] </mat-option>
+                            <mat-option *ngFor="let z of lstEstado" [value]="z.idDataCatalogo">
+                                    {{z.descripcion}}
+                            </mat-option> 
+                        </mat-select> 
+                    </mat-form-field>
+        </div>
+        <div  class="row" >
+            <button mat-raised-button type="submit" (click)="registra()" color="primary" >Registra</button>
+        </div>
+
 </div>

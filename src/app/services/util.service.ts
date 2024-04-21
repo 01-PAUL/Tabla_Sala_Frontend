@@ -51,6 +51,10 @@ export class UtilService {
     return this.http.get<DataCatalogo[]>(baseUrlUtil+"/listaSede");
   }
 
+  listaEstadoReserva():Observable<DataCatalogo[]>{
+    return this.http.get<DataCatalogo[]>(baseUrlUtil+"/listaEstadoReserva");
+  }
+
 }
 
 
